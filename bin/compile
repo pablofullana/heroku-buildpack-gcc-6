@@ -37,6 +37,8 @@ cd gcc-6.4.0-build
 make
 make install
 
+
+echo "-----> Cleaning up..."
 cd ..
 rm -rf gcc-6.4.0
 rm -rf gcc-6.4.0-build
