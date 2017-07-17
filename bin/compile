@@ -4,6 +4,8 @@
 # fail fast
 set -e
 
+apt-get install libmpc-dev
+
 # clone gcc-6
 echo "-----> Downloading gcc-6 files"
 BUILD_DIR=$1
