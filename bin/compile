@@ -32,7 +32,7 @@ mv mpc-1.0.3 gcc-6.4.0/mpc
 echo "-----> Making..."
 mkdir gcc-6.4.0-build
 cd gcc-6.4.0-build
-../gcc-6.4.0/configure --prefix=/opt/gcc-6.4.0/ --disable-multilib
+../gcc-6.4.0/configure --prefix=/opt/gcc-6.4.0/ --disable-multilib --enable-languages=c
 
 make
 make install
