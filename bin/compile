@@ -9,7 +9,7 @@ echo "-----> Downloading gcc-6 files"
 BUILD_DIR=$1
 cd $BUILD_DIR/vendor
 wget http://www.netgull.com/gcc/releases/gcc-6.4.0/gcc-6.4.0.tar.gz
-tar -xjvf gcc-6.4.0.tar.gz
+tar -zxvf gcc-6.4.0.tar.gz
 rm -f gcc-6.4.0.tar.gz
 mkdir gcc-6.4.0-build
 cd gcc-6.4.0-build
