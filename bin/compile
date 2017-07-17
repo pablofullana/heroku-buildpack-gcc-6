@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+# fail fast
+set -e
+
+# clone gcc-6
+echo "-----> Downloading gcc-6 files"
+BUILD_DIR=$1
+cd $BUILD_DIR/vendor
+wget http://www.netgull.com/gcc/releases/gcc-6.4.0/gcc-6.4.0.tar.gz
+tar -xjvf gcc-6.4.0.tar.gz
+rm -f gcc-6.4.0.tar.gz
+mkdir gcc-6.4.0-build
+cd gcc-6.4.0-build
+../gcc-6.4.0/configure --prefix=/opt/gcc-6.4.0/
+make
+make install
+cd ..
+rm -rf gcc-6.4.0
+rm -rf gcc-6.4.0-build
