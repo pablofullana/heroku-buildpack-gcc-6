@@ -3,21 +3,40 @@
 
 # fail fast
 set -e
-apt-get update
-apt-get install libmpc-dev
+
+
 
 # clone gcc-6
-echo "-----> Downloading gcc-6 files"
+echo "-----> Downloading gcc 6.4.0 files"
 BUILD_DIR=$1
 cd $BUILD_DIR/vendor
 wget http://www.netgull.com/gcc/releases/gcc-6.4.0/gcc-6.4.0.tar.gz
 tar -zxvf gcc-6.4.0.tar.gz
 rm -f gcc-6.4.0.tar.gz
+
+echo "-----> Downloading gmp 6.1.0 files"
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/gmp-6.1.0.tar.bz2
+tar -zxvf gmp-6.1.0.tar.bz2
+mv gmp-6.1.0 gcc-6.4.0/gmp
+
+echo "-----> Downloading mpfr 3.1.4 files"
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-3.1.4.tar.bz2
+tar -zxvf mpfr-3.1.4.tar.bz2
+mv mpfr-3.1.4 gcc-6.4.0/mpfr
+
+echo "-----> Downloading mpc 1.0.3 files"
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/mpc-1.0.3.tar.gz
+tar -zxvf mpc-1.0.3.tar.bz2
+mv mpc-1.0.3 gcc-6.4.0/mpc
+
+echo "-----> Making..."
 mkdir gcc-6.4.0-build
 cd gcc-6.4.0-build
 ../gcc-6.4.0/configure --prefix=/opt/gcc-6.4.0/
+
 make
 make install
+
 cd ..
 rm -rf gcc-6.4.0
 rm -rf gcc-6.4.0-build
