@@ -3,7 +3,7 @@
 
 # fail fast
 set -e
-
+apt-get update
 apt-get install libmpc-dev
 
 # clone gcc-6
